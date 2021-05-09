@@ -60,8 +60,6 @@ export default {
   },
   methods: {
     mudarSprite: function() {
-      console.log(this.pokemon.front);
-      console.log(this.pokemon.back);
       if (this.isFront) {
         this.isFront = false;
         this.currentImg = this.pokemon.back;
