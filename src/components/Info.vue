@@ -1,6 +1,12 @@
 <template>
   <div class="mt-5">
-    <p>{{ this.pokemon.description }}</p>
+    <p>{{ this.pokemon.description | removeArrow }}</p>
+    <br />
+    <div class="card-image">
+      <figure>
+        <img :src="back" alt="Placeholder image" />
+      </figure>
+    </div>
   </div>
 </template>
 
@@ -19,8 +25,15 @@ export default {
       },
     };
   },
+  filters: {
+    removeArrow: function(value) {
+      var newName = value.replace("", " ");
+      return newName;
+    },
+  },
   props: {
     url: String,
+    back: String,
   },
 };
 </script>

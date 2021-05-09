@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="card-content column is-half" v-if="showMore">
-          <Info :url="pokemon.url" />
+          <Info :url="pokemon.url" :back="pokemon.back" />
         </div>
       </div>
       <div class="card-content">
