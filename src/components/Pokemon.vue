@@ -70,15 +70,6 @@ export default {
     },
   },
   methods: {
-    mudarSprite: function() {
-      if (this.isFront) {
-        this.isFront = false;
-        this.currentImg = this.pokemon.back;
-      } else {
-        this.isFront = true;
-        this.currentImg = this.pokemon.front;
-      }
-    },
     changeShowMore: function() {
       if (this.showMore) {
         this.showMore = false;
