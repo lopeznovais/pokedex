@@ -10,7 +10,9 @@
         <div class="media">
           <div class="media-content">
             <p class="title is-4">{{ num }} - {{ name | upper }}</p>
-            <p class="subtitle is-6">{{ pokemon.type }}</p>
+            <template v-for="type in pokemon.types">
+              {{ type.type.name | upper }}
+            </template>
           </div>
         </div>
         <div class="content">
@@ -28,7 +30,7 @@ import axios from "axios";
 export default {
   created: function() {
     axios.get(this.url).then((res) => {
-      this.pokemon.type = res.data.types[0].type.name;
+      this.pokemon.types = res.data.types;
       this.pokemon.front = res.data.sprites.front_default;
       this.pokemon.back = res.data.sprites.back_default;
       this.currentImg = this.pokemon.front;
