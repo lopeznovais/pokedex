@@ -5,7 +5,7 @@
         <div class="column" v-bind:class="{ 'is-half': showMore }">
           <div class="card-image">
             <figure>
-              <img :src="currentImg" alt="Placeholder image" />
+              <img :src="pokemon.front" alt="Placeholder image" />
             </figure>
           </div>
           <div class="card-content">
@@ -42,13 +42,11 @@ export default {
       this.pokemon.front = res.data.sprites.front_default;
       this.pokemon.back = res.data.sprites.back_default;
       this.pokemon.url = res.data.species.url;
-      this.currentImg = this.pokemon.front;
     });
   },
   data() {
     return {
       showMore: false,
-      isFront: true,
       currentImg: "",
       pokemon: {
         type: "",
