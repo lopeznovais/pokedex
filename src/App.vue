@@ -14,13 +14,17 @@
       >
         Buscar
       </button>
-      <div v-for="poke in filteredPokemons" :key="poke.url">
-        <Pokemon
-          :name="poke.name"
-          :url="poke.url"
-          :num="poke.url.split('/')[6]"
-        />
-      </div>
+    </div>
+    <div
+      class="column is-half is-offset-one-quarter"
+      v-for="poke in filteredPokemons"
+      :key="poke.url"
+    >
+      <Pokemon
+        :name="poke.name"
+        :url="poke.url"
+        :num="poke.url.split('/')[6]"
+      />
     </div>
   </div>
 </template>
@@ -39,7 +43,7 @@ export default {
   },
   created: function() {
     axios
-      .get("https://pokeapi.co/api/v2/pokemon?limit=891&offset=0")
+      .get("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")
       .then((res) => {
         this.pokemons = res.data.results;
         this.filteredPokemons = res.data.results;
